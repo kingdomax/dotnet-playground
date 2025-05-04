@@ -1,0 +1,60 @@
+## Build artifacts
+bin/
+obj/
+
+## User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+.history/
+
+## ASP.NET Core
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+
+## Logs
+*.log
+logs/
+
+## Environment files
+.env
+.env.*
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/packages/
+packages/
+project.lock.json
+project.fragment.lock.json
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## DotCover
+*.dotCover
+
+## Azure functions
+local.settings.json
+
+## Others
+*.db
+*.sqlite
+*.pdb
+*.mdb
+*.opendb
+
+## OS-generated files
+.DS_Store
+Thumbs.db
+
+.vs
