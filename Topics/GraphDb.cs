@@ -1,4 +1,4 @@
-﻿namespace Playground
+﻿namespace Playground.Topics
 {
     // ✅ Simple C# Example of Domain-Driven Design + Graph Traversal
     public class GraphDb

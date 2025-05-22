@@ -1,7 +1,7 @@
-﻿using System.Text.Json;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
+using System.Text.Json;
 
-namespace Playground
+namespace Playground.Topics
 {
     public class RestApi
     {
@@ -16,7 +16,7 @@ namespace Playground
             using (var httpClient = new HttpClient())
             {
                 var request = new HttpRequestMessage(HttpMethod.Get, "https://jsonplaceholder.typicode.com/users") { };
-                
+
                 var response = await httpClient.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)

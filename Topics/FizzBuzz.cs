@@ -1,6 +1,6 @@
-﻿using Playground.Models;
+﻿using Playground.Topics.Models;
 
-namespace Playground
+namespace Playground.Topics
 {
     public class FizzBuzz
     {
@@ -22,8 +22,8 @@ namespace Playground
             while (queue.Count > 0)
             {
                 TreeNode current = queue.Dequeue();
-                
-                Console.Write (current.Value + " "); // Process node
+
+                Console.Write(current.Value + " "); // Process node
 
                 if (current.Left != null) { queue.Enqueue(current.Left); }
                 if (current.Right != null) { queue.Enqueue(current.Right); }

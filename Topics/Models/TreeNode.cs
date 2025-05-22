@@ -1,4 +1,4 @@
-﻿namespace Playground.Models
+﻿namespace Playground.Topics.Models
 {
     public class TreeNode
     {
