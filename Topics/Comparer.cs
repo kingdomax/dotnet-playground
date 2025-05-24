@@ -1,8 +1,9 @@
-﻿using Playground.Topics.Models;
+﻿using Playground.Topics.Interfaces;
+using Playground.Topics.Models;
 
 namespace Playground.Topics
 {
-    public class Comparer : IComparer<Student>
+    public class Comparer : IComparer<Student>, IRunner
     {
         public void Run()
         {
@@ -14,7 +15,7 @@ namespace Playground.Topics
                 new Student { Name = "Eve", Score = 100 }
             };
 
-            studentList.Sort(Compare);
+            studentList.Sort(Compare); // design pattern: strategy pattern !
 
             foreach (var student in studentList)
             {

@@ -1,9 +1,10 @@
-﻿using System.Net.Http.Json;
+﻿using Playground.Topics.Interfaces;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace Playground.Topics
 {
-    public class RestApi
+    public class RestApi : IRunner
     {
         public void Run()
         {

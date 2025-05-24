@@ -1,8 +1,9 @@
-﻿using Playground.Topics.Models;
+﻿using Playground.Topics.Interfaces;
+using Playground.Topics.Models;
 
 namespace Playground.Topics
 {
-    public class FizzBuzz
+    public class FizzBuzz : IRunner
     {
         public void Run()
         {
