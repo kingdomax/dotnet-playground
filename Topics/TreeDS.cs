@@ -1,9 +1,8 @@
 ﻿using Playground.Topics.Interfaces;
-using Playground.Topics.Models;
 
 namespace Playground.Topics
 {
-    public class FizzBuzz : IRunner
+    public class TreeDS : IRunner
     {
         public void Run()
         {
@@ -40,6 +39,17 @@ namespace Playground.Topics
             root.Left.Right = new TreeNode(5);
             root.Right.Right = new TreeNode(6);
             return root;
+        }
+    }
+
+    public class TreeNode
+    {
+        public int Value;
+        public TreeNode Left, Right;
+
+        public TreeNode(int val)
+        {
+            Value = val;
         }
     }
 }

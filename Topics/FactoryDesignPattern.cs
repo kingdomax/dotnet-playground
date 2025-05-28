@@ -9,9 +9,10 @@ namespace Playground.Topics
             switch (name)
             {
                 case "Comparer": return new Comparer();
-                case "FizzBuzz": return new FizzBuzz();
+                case "TreeDS": return new TreeDS();
                 case "GraphDb": return new GraphDb();
                 case "RestApi": return new RestApi();
+                case "MyLinq": return new MyLinq();
                 default: throw new ArgumentException("in-correct class name");
             }
         }

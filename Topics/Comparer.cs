@@ -1,5 +1,4 @@
 ﻿using Playground.Topics.Interfaces;
-using Playground.Topics.Models;
 
 namespace Playground.Topics
 {
@@ -15,7 +14,9 @@ namespace Playground.Topics
                 new Student { Name = "Eve", Score = 100 }
             };
 
-            studentList.Sort(Compare); // design pattern: strategy pattern !
+            // 1) design pattern: strategy pattern !
+            // 2) .Sort() .Remove() are kinds of mutation
+            studentList.Sort(Compare);
 
             foreach (var student in studentList)
             {
@@ -34,5 +35,11 @@ namespace Playground.Topics
             // Ascending by name
             return x.Name.CompareTo(y.Name);
         }
+    }
+
+    public class Student
+    {
+        public int Score { get; set; }
+        public required string Name { get; set; }
     }
 }
