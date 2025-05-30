@@ -9,7 +9,7 @@ namespace Playground.Topics
         public void Run()
         {
             Get().GetAwaiter().GetResult();
-            Post().GetAwaiter().GetResult();
+            //Post().GetAwaiter().GetResult();
         }
 
         private async Task Get()
@@ -27,9 +27,11 @@ namespace Playground.Topics
 
                     if (users != null)
                     {
-                        foreach (var user in users)
+                        var nameList = users.Where(u => u.name?.Contains("Clementin") ?? false).Select(u => u.name).ToList();
+
+                        foreach (var name in nameList)
                         {
-                            Console.WriteLine($"{user.id} - {user.name} - {user.email}");
+                            Console.WriteLine(name);
                         }
                     }
                 }
@@ -76,5 +78,19 @@ namespace Playground.Topics
         public string? email { get; set; }
         public string? phone { get; set; }
         public string? website { get; set; }
+        public Address? address { get; set; }
+    }
+
+    public class Address
+    {
+        public string? street { get; set; }
+        public string? city { get; set; }
+        public GeoLocation? geo { get; set; }
+    }
+
+    public class GeoLocation
+    {
+        public string? lat { get; set; } // should use double
+        public string? lng { get; set; }
     }
 }

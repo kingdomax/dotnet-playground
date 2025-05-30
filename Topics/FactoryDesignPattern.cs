@@ -13,6 +13,7 @@ namespace Playground.Topics
                 case "GraphDb": return new GraphDb();
                 case "RestApi": return new RestApi();
                 case "MyLinq": return new MyLinq();
+                case "MultiAsync": return new MultiAsync();
                 default: throw new ArgumentException("in-correct class name");
             }
         }
