@@ -8,8 +8,8 @@ namespace Playground.Topics
     {
         public void Run()
         {
-            //var results = WhenAll().GetAwaiter().GetResult();
-            var results = WhenAny().GetAwaiter().GetResult();
+            //var results = WhenAll().ConfigureAwait(false).GetAwaiter().GetResult();
+            var results = WhenAny().ConfigureAwait(false).GetAwaiter().GetResult();
 
             for (var i = 0; i < results.Length; i++) { Console.WriteLine($"Result: {results[i]?.userId} - {results[i]?.title} - {results[i]?.completed}"); }
         }
@@ -61,12 +61,16 @@ namespace Playground.Topics
             if (throwException) { throw new Exception($"Exception at {userId} - {title}"); }
             await Task.Delay(userId * 1000);
 
-            var newDto = new TodoDto() { userId = userId, title = title, completed = completed };
-
             var httpMessage = new HttpRequestMessage(HttpMethod.Post, "https://jsonplaceholder.typicode.com/todos")
             {
-                Content = JsonContent.Create(newDto)
+                Content = JsonContent.Create(new TodoDto()
+                {
+                    userId = userId,
+                    title = title,
+                    completed = completed
+                })
             };
+
             var response = await httpClient.SendAsync(httpMessage);
 
             if (response.IsSuccessStatusCode)

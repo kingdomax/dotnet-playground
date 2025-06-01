@@ -14,6 +14,7 @@ namespace Playground.Topics
                 case "RestApi": return new RestApi();
                 case "MyLinq": return new MyLinq();
                 case "MultiAsync": return new MultiAsync();
+                case "TryCatchFinally": return new TryCatchFinally();
                 default: throw new ArgumentException("in-correct class name");
             }
         }

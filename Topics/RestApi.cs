@@ -8,8 +8,8 @@ namespace Playground.Topics
     {
         public void Run()
         {
-            Get().GetAwaiter().GetResult();
-            //Post().GetAwaiter().GetResult();
+            //Get().ConfigureAwait(false).GetAwaiter().GetResult();
+            Post().ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
         private async Task Get()
