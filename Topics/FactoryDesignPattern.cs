@@ -15,6 +15,7 @@ namespace Playground.Topics
                 case "MyLinq": return new MyLinq();
                 case "MultiAsync": return new MultiAsync();
                 case "TryCatchFinally": return new TryCatchFinally();
+                case "SystemIo": return new SystemIo();
                 default: throw new ArgumentException("in-correct class name");
             }
         }
