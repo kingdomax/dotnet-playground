@@ -4,17 +4,17 @@ using System.Text.Json;
 
 namespace Playground.Topics
 {
-    public class MultiAsync : IRunner
+    public class MultiTasks : IRunner
     {
         public void Run()
         {
-            //var results = WhenAll().ConfigureAwait(false).GetAwaiter().GetResult();
-            var results = WhenAny().ConfigureAwait(false).GetAwaiter().GetResult();
+            WhenAll().ConfigureAwait(false).GetAwaiter().GetResult();
+            WhenAny().ConfigureAwait(false).GetAwaiter().GetResult();
 
-            for (var i = 0; i < results.Length; i++) { Console.WriteLine($"Result: {results[i]?.userId} - {results[i]?.title} - {results[i]?.completed}"); }
+            DoCpuBoundTask().ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
-        private async Task<TodoDto?[]> WhenAll()
+        private async Task WhenAll()
         {
             try
             {
@@ -26,20 +26,19 @@ namespace Playground.Topics
                     PostAsync(httpCLient, 2, "todo two", true),
                     PostAsync(httpCLient, 3, "todo three", true),
                     PostAsync(httpCLient, 4, "todo four", false),
-                    PostAsync(httpCLient, 5, "todo five", false, throwException: true),
+                    PostAsync(httpCLient, 5, "todo five", false)//, throwException: true)
                 };
                 var results = await Task.WhenAll(tasks);
 
-                return results;
+                Print(results);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return Array.Empty<TodoDto?>();
             }
         }
 
-        private async Task<TodoDto?[]> WhenAny()
+        private async Task WhenAny()
         {
             using var httpCLient = new HttpClient();
 
@@ -52,8 +51,9 @@ namespace Playground.Topics
                 PostAsync(httpCLient, 5, "wait 5s", false),
             };
             Task<TodoDto?> firstCompleted = await Task.WhenAny(tasks);
+            var result = await firstCompleted;
 
-            return new TodoDto?[] { await firstCompleted };
+            Print(new TodoDto?[] { result });
         }
 
         private async Task<TodoDto?> PostAsync(HttpClient httpClient, int userId, string title, bool completed, bool throwException = false)
@@ -80,6 +80,25 @@ namespace Playground.Topics
             }
 
             return null;
+        }
+
+        private void Print(TodoDto?[] results)
+        {
+            for (var i = 0; i < results.Length; i++)
+            {
+                Console.WriteLine($"Result: {results[i]?.userId} - {results[i]?.title} - {results[i]?.completed}");
+            }
+        }
+
+        private async Task DoCpuBoundTask()
+        {
+            await Task.Run(() => // Task.Run() queues the work to the thread pool
+            {
+                for (var i = 0; i < 1000; i++)
+                {
+                    Console.WriteLine(i);
+                }
+            });
         }
     }
 
