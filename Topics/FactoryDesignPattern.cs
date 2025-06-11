@@ -16,6 +16,7 @@ namespace Playground.Topics
                 case "MultiTasks": return new MultiTasks();
                 case "TryCatchFinally": return new TryCatchFinally();
                 case "SystemIo": return new SystemIo();
+                case "Factorial": return new Factorial();
                 default: throw new ArgumentException("in-correct class name");
             }
         }
