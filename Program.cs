@@ -7,3 +7,5 @@ Playground.Topics.FactoryDesignPattern.Create("Factorial").Run();
 //{
 //    Console.WriteLine(a[each.Key]);
 //}
+
+var a = new Playground.Topics.User(1, "Moch"); // todo: try destruct and immutable in separate file
