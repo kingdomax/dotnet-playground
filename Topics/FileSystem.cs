@@ -2,7 +2,7 @@
 
 namespace Playground.Topics
 {
-    public class SystemIo : IRunner
+    public class FileSystem : IRunner
     {
         public void Run()
         {
