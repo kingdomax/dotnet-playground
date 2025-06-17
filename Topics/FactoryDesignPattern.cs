@@ -18,6 +18,7 @@ namespace Playground.Topics
                 case "FileSystem": return new FileSystem();
                 case "Factorial": return new Factorial();
                 case "Record": return new Record();
+                case "Sorting": return new Sorting();
                 default: throw new ArgumentException("in-correct class name");
             }
         }
