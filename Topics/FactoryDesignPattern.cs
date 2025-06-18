@@ -19,6 +19,7 @@ namespace Playground.Topics
                 case "Factorial": return new Factorial();
                 case "Record": return new Record();
                 case "Sorting": return new Sorting();
+                case "InterviewMiaPlaza": return new InterviewMiaPlaza();
                 default: throw new ArgumentException("in-correct class name");
             }
         }

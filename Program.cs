@@ -1,3 +1,3 @@
 ﻿
-// Comparer, TreeDS, GraphDb, RestApi, MyLinq, MultiTasks, TryCatchFinally, FileSystem, Record, Sorting
-Playground.Topics.FactoryDesignPattern.Create("Record").Run();
+// Comparer, TreeDS, GraphDb, RestApi, MyLinq, MultiTasks, TryCatchFinally, FileSystem, Record, Sorting, InterviewMiaPlaza
+Playground.Topics.FactoryDesignPattern.Create("InterviewMiaPlaza").Run();
