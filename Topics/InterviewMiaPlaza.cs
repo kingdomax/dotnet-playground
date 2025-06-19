@@ -34,29 +34,34 @@ namespace Playground.Topics
         // "abc"
         private string ConciseString(string input)
         {
-            if (input.Length == 0) { return ""; }
+            if (input?.Length == 0) { return ""; }
 
-            var occurance = new Dictionary<char, int>(); // store frequency
-            foreach (var c in input)
+            var result = "";
+
+            var letter = input[0];
+            var occurance = 1;
+
+            for (var i = 1; i < input.Length; i++)
             {
-                if (occurance.ContainsKey(c))
+                var current = input[i];
+
+                if (current == letter)
                 {
-                    occurance[c] = occurance[c] + 1;
+                    occurance++;
                 }
                 else
                 {
-                    occurance.Add(c, 1);
+                    // construct substring before reset
+                    var repeat = occurance > 1 ? occurance.ToString() : "";
+                    result = result + letter + repeat;
+
+                    occurance = 1;
                 }
+
+                letter = current;
             }
 
-            var output = "";
-            foreach (var info in occurance)
-            {
-                var repeated = info.Value > 1 ? info.Value.ToString() : string.Empty;
-                output = output + $"{info.Key}{repeated}";
-            }
-
-            return output;
+            return result;
         }
 
         // Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
